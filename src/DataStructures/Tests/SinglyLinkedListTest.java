@@ -89,4 +89,18 @@ public class SinglyLinkedListTest extends TestCase {
 
         Assert.assertEquals("foo", sut.getTail().getValue());
     }
+
+    public void testReverse() throws Exception {
+        sut.addFirst("first");
+        sut.addLast("second");
+        sut.addLast("third");
+        sut.addLast("fourth");
+
+        sut.reverse();
+
+        Assert.assertEquals(sut.getHead().getValue(), "fourth");
+        Assert.assertEquals(sut.getHead().getNext().getValue(), "third");
+        Assert.assertEquals(sut.getHead().getNext().getNext().getValue(), "second");
+        Assert.assertEquals(sut.getTail().getValue(), "first");
+    }
 }

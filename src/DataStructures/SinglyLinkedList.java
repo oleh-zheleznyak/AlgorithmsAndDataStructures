@@ -82,6 +82,24 @@ public class SinglyLinkedList<T> implements LinkedList<T> {
         _count--;
     }
 
+    public void reverse() {
+        if (_count <=1) return;
+
+        Node<T> previous = null, current = _head, next = null;
+
+        while (current!=null)         {
+            next = current.getNext();
+            current.setNext(previous);
+
+            previous = current;
+            current = next;
+        }
+
+        next = _head;
+        _head = _tail;
+        _tail = next;
+    }
+
     @Override
     public Iterator<T> iterator() {
         return null;
