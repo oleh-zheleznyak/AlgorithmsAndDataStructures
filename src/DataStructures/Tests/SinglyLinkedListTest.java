@@ -12,7 +12,7 @@ import junit.framework.TestCase;
  */
 public class SinglyLinkedListTest extends TestCase {
 
-    private LinkedList<String> sut;
+    private SinglyLinkedList<String> sut;
 
     public void setUp() throws Exception {
         super.setUp();
@@ -75,5 +75,18 @@ public class SinglyLinkedListTest extends TestCase {
 
         sut.removeFirst();
         Assert.assertEquals(0,sut.getCount());
+    }
+
+    public void testRemoveLast() throws Exception {
+        sut.addFirst("foo");
+        sut.addLast("bar");
+
+        Assert.assertEquals(2, sut.getCount());
+
+        sut.removeLast();
+
+        Assert.assertEquals(1, sut.getCount());
+
+        Assert.assertEquals("foo", sut.getTail().getValue());
     }
 }

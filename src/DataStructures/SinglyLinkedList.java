@@ -1,5 +1,9 @@
 package DataStructures;
 
+import java.util.Iterator;
+import java.util.Spliterator;
+import java.util.function.Consumer;
+
 public class SinglyLinkedList<T> implements LinkedList<T> {
 
     private Node<T> _head;
@@ -54,6 +58,66 @@ public class SinglyLinkedList<T> implements LinkedList<T> {
     @Override
     public int getCount() {
         return _count;
+    }
+
+    /*
+    * @deprecated this method is an O(N) operation
+     */
+    @Deprecated
+    public void removeLast() {
+        if (_count == 0) throw new IllegalStateException("linked list is empty");
+        else if (_count == 1) _head = _tail = null;
+        else {
+
+            Node<T> current = _head, previous = null;
+            while (current.getNext() != null) {
+                previous = current;
+                current = current.getNext();
+            }
+
+            current.setValue(null);
+            previous.setNext(null);
+            _tail = previous;
+        }
+        _count--;
+    }
+
+    @Override
+    public Iterator<T> iterator() {
+        return null;
+    }
+
+    @Override
+    public void forEach(Consumer<? super T> action) {
+
+    }
+
+    @Override
+    public Spliterator<T> spliterator() {
+        return null;
+    }
+
+    private class SinglyLinkedListIterator<T> implements Iterator<T> {
+
+        @Override
+        public boolean hasNext() {
+            return false;
+        }
+
+        @Override
+        public T next() {
+            return null;
+        }
+
+        @Override
+        public void remove() {
+
+        }
+
+        @Override
+        public void forEachRemaining(Consumer<? super T> action) {
+
+        }
     }
 }
 
