@@ -6,7 +6,7 @@ import junit.framework.TestCase;
 
 public abstract class StackTest extends TestCase {
 
-    private Stack<String> _stack;
+    protected Stack<String> _stack;
 
     public abstract void setUp() throws Exception ;
 

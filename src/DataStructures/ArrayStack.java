@@ -12,15 +12,17 @@ public class ArrayStack<T> implements Stack<T> {
 
     @Override
     public T peek() {
-        return _array[_count];
+        return _array[_count-1];
     }
 
     @Override
     public T pop() {
+        T value = _array[_count-1];
+        _array[_count-1] = null;
+
         if (_count * 2 == _array.length) shrinkArray();
-        T value = _array[_count];
-        _array[_count] = null;
         _count--;
+
         return value;
     }
 
