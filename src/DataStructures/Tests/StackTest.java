@@ -1,12 +1,14 @@
 package DataStructures.Tests;
 
-import DataStructures.LinkedStack;
+import DataStructures.Stack;
 import junit.framework.Assert;
 import junit.framework.TestCase;
 
-public class LinkedStackTest extends TestCase {
+public abstract class StackTest extends TestCase {
 
-    private LinkedStack<String> _stack;
+    private Stack<String> _stack;
+
+    public abstract void setUp() throws Exception ;
 
     public void testPeek() throws Exception {
         _stack.push("foo");
@@ -38,10 +40,5 @@ public class LinkedStackTest extends TestCase {
         Assert.assertFalse(_stack.isEmpty());
         _stack.pop();
         Assert.assertTrue(_stack.isEmpty());
-    }
-
-    public void setUp() throws Exception {
-        super.setUp();
-        _stack = new LinkedStack<>();
     }
 }
