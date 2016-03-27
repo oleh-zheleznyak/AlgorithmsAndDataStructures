@@ -1,15 +1,14 @@
 package DataStructures.Tests;
 
-import DataStructures.SinglyLinkedNode;
-import DataStructures.SinglyLinkedList;
-import junit.framework.Assert;
+import DataStructures.DoublyLinkedList;
 import junit.framework.TestCase;
+import junit.framework.Assert;
 
-public class SinglyLinkedListTest extends LinkedListTest {
+public class DoublyLinkedListTest extends LinkedListTest {
 
     @Override
     protected void setUp() throws Exception {
-        sut = new SinglyLinkedList<>();
+        sut = new DoublyLinkedList<>();
     }
 
     public void testGetHead() throws Exception {
@@ -31,13 +30,13 @@ public class SinglyLinkedListTest extends LinkedListTest {
     public void testAddLast() throws Exception {
         super.testAddLast();
     }
-
+    
     public void testGetCount() throws Exception {
         super   .testGetCount();
     }
 
     public void testRemoveLast() throws Exception {
-        SinglyLinkedList<String> sut = new SinglyLinkedList<>();
+        DoublyLinkedList<String> sut = new DoublyLinkedList<>();
         sut.addFirst("foo");
         sut.addLast("bar");
 
@@ -48,20 +47,5 @@ public class SinglyLinkedListTest extends LinkedListTest {
         Assert.assertEquals(1, sut.getCount());
 
         Assert.assertEquals("foo", sut.getTail().getValue());
-    }
-
-    public void testReverse() throws Exception {
-        SinglyLinkedList<String> sut = new SinglyLinkedList<>();
-        sut.addFirst("first");
-        sut.addLast("second");
-        sut.addLast("third");
-        sut.addLast("fourth");
-
-        sut.reverse();
-
-        Assert.assertEquals(sut.getHead().getValue(), "fourth");
-        Assert.assertEquals(sut.getHead().getNext().getValue(), "third");
-        Assert.assertEquals(sut.getHead().getNext().getNext().getValue(), "second");
-        Assert.assertEquals(sut.getTail().getValue(), "first");
     }
 }

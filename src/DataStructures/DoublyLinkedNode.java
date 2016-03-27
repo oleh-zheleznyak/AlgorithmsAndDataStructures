@@ -1,6 +1,6 @@
 package DataStructures;
 
-public class DoublyLinkedNode<T> {
+public class DoublyLinkedNode<T> implements Node<T> {
 
     private DoublyLinkedNode<T> _previous, _next;
     private T _value;
@@ -13,6 +13,7 @@ public class DoublyLinkedNode<T> {
         _previous = previous;
     }
 
+    @Override
     public DoublyLinkedNode<T> getNext() {
         return _next;
     }
@@ -21,6 +22,7 @@ public class DoublyLinkedNode<T> {
         _next = next;
     }
 
+    @Override
     public T getValue() {
         return _value;
     }

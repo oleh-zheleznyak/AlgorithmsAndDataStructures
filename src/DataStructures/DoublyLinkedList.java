@@ -1,22 +1,28 @@
 package DataStructures;
 
-public class DoublyLinkedList<T>  {
+import java.util.Iterator;
+import java.util.Spliterator;
+import java.util.function.Consumer;
+
+public class DoublyLinkedList<T> implements LinkedList<T> {
     private DoublyLinkedNode<T> _head, _tail;
     private int _count;
 
-    public Node<T> getHead() {
+    @Override
+    public DoublyLinkedNode<T> getHead() {
         return _head;
     }
 
-    public Node<T> getTail() {
+    @Override
+    public DoublyLinkedNode<T> getTail() {
         return _tail;
     }
 
+    @Override
     public void addFirst(T value) {
-        if (_count ==0) {
+        if (_count == 0) {
             _head = _tail = new DoublyLinkedNode<>();
-        }
-        else {
+        } else {
             DoublyLinkedNode<T> newHead = new DoublyLinkedNode<>();
             newHead.setNext(_head);
             _head.setPrevious(newHead);
@@ -26,6 +32,7 @@ public class DoublyLinkedList<T>  {
         _head.setValue(value);
     }
 
+    @Override
     public T removeFirst() {
         if (_count == 0) throw new IllegalStateException("linked list is empty");
 
@@ -33,8 +40,7 @@ public class DoublyLinkedList<T>  {
 
         if (_count == 1) {
             _head = _tail = null;
-        }
-        else {
+        } else {
             DoublyLinkedNode<T> newHead = _head.getNext();
             _head.setNext(null);
             newHead.setPrevious(null);
@@ -42,15 +48,14 @@ public class DoublyLinkedList<T>  {
         }
 
         _count--;
-        return  value;
+        return value;
     }
 
+    @Override
     public void addLast(T value) {
-        if (_count ==0) {
+        if (_count == 0) {
             _head = _tail = new DoublyLinkedNode<>();
-        }
-        else
-        {
+        } else {
             DoublyLinkedNode<T> newTail = new DoublyLinkedNode<>();
             newTail.setPrevious(_tail);
             _tail.setNext(newTail);
@@ -67,8 +72,7 @@ public class DoublyLinkedList<T>  {
 
         if (_count == 1) {
             _head = _tail = null;
-        }
-        else {
+        } else {
             DoublyLinkedNode<T> newTail = _tail.getPrevious();
             _tail.setPrevious(null);
             newTail.setNext(null);
@@ -79,7 +83,23 @@ public class DoublyLinkedList<T>  {
         return value;
     }
 
+    @Override
     public int getCount() {
-        return  _count;
+        return _count;
+    }
+
+    @Override
+    public Iterator<T> iterator() {
+        return null;
+    }
+
+    @Override
+    public void forEach(Consumer<? super T> action) {
+
+    }
+
+    @Override
+    public Spliterator<T> spliterator() {
+        return null;
     }
 }

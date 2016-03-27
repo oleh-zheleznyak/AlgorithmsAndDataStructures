@@ -6,26 +6,26 @@ import java.util.function.Consumer;
 
 public class SinglyLinkedList<T> implements LinkedList<T> {
 
-    private Node<T> _head;
-    private Node<T> _tail;
+    private SinglyLinkedNode<T> _head;
+    private SinglyLinkedNode<T> _tail;
     private int _count = 0;
 
     @Override
-    public Node<T> getHead() {
+    public SinglyLinkedNode<T> getHead() {
         return _head;
     }
 
     @Override
-    public Node<T> getTail() {
+    public SinglyLinkedNode<T> getTail() {
         return _tail;
     }
 
     @Override
     public void addFirst(T value) {
         if (_count == 0) {
-            _head = _tail = new Node<>(value, null);
+            _head = _tail = new SinglyLinkedNode<>(value, null);
         } else {
-            _head = new Node<>(value, _head);
+            _head = new SinglyLinkedNode<>(value, _head);
         }
         _count++;
     }
@@ -46,9 +46,9 @@ public class SinglyLinkedList<T> implements LinkedList<T> {
     @Override
     public void addLast(T value) {
         if (_count == 0) {
-            _head = _tail = new Node<>(value, null);
+            _head = _tail = new SinglyLinkedNode<>(value, null);
         } else {
-            Node<T> newTail = new Node<>(value, null);
+            SinglyLinkedNode<T> newTail = new SinglyLinkedNode<>(value, null);
             _tail.setNext(newTail);
             _tail = newTail;
         }
@@ -69,7 +69,7 @@ public class SinglyLinkedList<T> implements LinkedList<T> {
         else if (_count == 1) _head = _tail = null;
         else {
 
-            Node<T> current = _head, previous = null;
+            SinglyLinkedNode<T> current = _head, previous = null;
             while (current.getNext() != null) {
                 previous = current;
                 current = current.getNext();
@@ -85,7 +85,7 @@ public class SinglyLinkedList<T> implements LinkedList<T> {
     public void reverse() {
         if (_count <=1) return;
 
-        Node<T> previous = null, current = _head, next = null;
+        SinglyLinkedNode<T> previous = null, current = _head, next = null;
 
         while (current!=null)         {
             next = current.getNext();
