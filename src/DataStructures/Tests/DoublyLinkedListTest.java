@@ -30,7 +30,7 @@ public class DoublyLinkedListTest extends LinkedListTest {
     public void testAddLast() throws Exception {
         super.testAddLast();
     }
-    
+
     public void testGetCount() throws Exception {
         super   .testGetCount();
     }

@@ -1,5 +1,10 @@
 package DataStructures;
 
+import java.util.Iterator;
+import java.util.Spliterator;
+import java.util.function.Consumer;
+import java.util.stream.Stream;
+
 public class ArrayStack<T> implements Stack<T> {
 
     private static final int initialSize = 2;
@@ -49,5 +54,21 @@ public class ArrayStack<T> implements Stack<T> {
         T[] newArray = (T[]) new Object[newSize];
         System.arraycopy(_array, 0, newArray, 0, _count);
         _array = newArray;
+    }
+
+    @Override
+    public Iterator<T> iterator() {
+        Stream<T> stream;
+        return null;
+    }
+
+    @Override
+    public void forEach(Consumer<? super T> action) {
+
+    }
+
+    @Override
+    public Spliterator<T> spliterator() {
+        return null;
     }
 }

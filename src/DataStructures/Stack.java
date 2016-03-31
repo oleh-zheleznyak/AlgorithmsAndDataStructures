@@ -1,6 +1,6 @@
 package DataStructures;
 
-public interface Stack<T> {
+public interface Stack<T> extends Iterable<T> {
     T peek();
 
     T pop();
