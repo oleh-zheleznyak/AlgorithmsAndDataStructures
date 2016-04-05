@@ -1,5 +1,7 @@
 package DataStructures;
 
+import java.util.Iterator;
+
 public class LinkedStack<T> implements Stack<T> {
 
     private LinkedList<T> _linkedList = new SinglyLinkedList<>();
@@ -26,4 +28,8 @@ public class LinkedStack<T> implements Stack<T> {
         return _linkedList.getCount() == 0;
     }
 
+    @Override
+    public Iterator<T> iterator() {
+        return new LinkedListIterator<>(_linkedList);
+    }
 }

@@ -1,8 +1,6 @@
 package DataStructures.Tests;
 
 import DataStructures.ArrayStack;
-import DataStructures.Stack;
-import junit.framework.TestCase;
 
 public class ArrayStackTest extends StackTest {
 

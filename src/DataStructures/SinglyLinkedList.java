@@ -1,8 +1,6 @@
 package DataStructures;
 
 import java.util.Iterator;
-import java.util.Spliterator;
-import java.util.function.Consumer;
 
 public class SinglyLinkedList<T> implements LinkedList<T> {
 
@@ -102,40 +100,8 @@ public class SinglyLinkedList<T> implements LinkedList<T> {
 
     @Override
     public Iterator<T> iterator() {
-        return null;
+        return new LinkedListIterator<T>(this);
     }
 
-    @Override
-    public void forEach(Consumer<? super T> action) {
-
-    }
-
-    @Override
-    public Spliterator<T> spliterator() {
-        return null;
-    }
-
-    private class SinglyLinkedListIterator<T> implements Iterator<T> {
-
-        @Override
-        public boolean hasNext() {
-            return false;
-        }
-
-        @Override
-        public T next() {
-            return null;
-        }
-
-        @Override
-        public void remove() {
-
-        }
-
-        @Override
-        public void forEachRemaining(Consumer<? super T> action) {
-
-        }
-    }
 }
 
